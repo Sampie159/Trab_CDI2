@@ -12,10 +12,11 @@ architecture somador of portas is
 begin
     process(A, B, Cin) is
     begin
-        S <= '1' when (A = '1' and B = '1' and Cin = '1') else
-             '1' when (A = '1' and B = '0' and Cin = '0') else
-             '1' when (A = '0' and B = '1' and Cin = '0') else
-             '1' when (A = '0' and B = '0' and Cin = '1') else '0';
+        S <= (A xor B) xor Cin;
+        -- S <= '1' when (A = '1' and B = '1' and Cin = '1') else
+        --      '1' when (A = '1' and B = '0' and Cin = '0') else
+        --      '1' when (A = '0' and B = '1' and Cin = '0') else
+        --      '1' when (A = '0' and B = '0' and Cin = '1') else '0';
         Cout <= '1' when (A = '1' and B = '1' and Cin = '1') else
                 '1' when (A = '1' and B = '1' and Cin = '0') else
                 '1' when (A = '1' and B = '0' and Cin = '1') else
