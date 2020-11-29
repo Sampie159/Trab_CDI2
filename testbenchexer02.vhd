@@ -44,6 +44,7 @@ begin
         PASST <= '1';
         IGNT <= '1';
         BELTPT <= '0';
+        wait for 1 ns;
         assert(ALARMT = '1') report "Falha em 1/1/0 passageiro" severity error;
         
         DRIVT <= '0';
